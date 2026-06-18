@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FluentCode - Perfil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #0d1b2a; color: #ffffff; }
+        .bg-dark-blue { background-color: #0b2545; }
+        .bg-card-blue { background-color: #134074; }
+
+        @media (max-width:768px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+    main{
+        padding:16px !important;
+    }
+
+    .avatar-option{
+        min-height:52px;
+        min-width:52px;
+    }
+
+    input{
+        font-size:16px;
+    }
+
+    aside{
+        display:none !important;
+    }
+}
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+<nav class="fixed bottom-0 left-0 right-0 bg-dark-blue border-t border-slate-700 flex justify-around py-3 md:hidden z-50">
+
+    <a href="index.html">
+        <i class="fa-solid fa-house text-xl"></i>
+    </a>
+
+    <a href="atividades.html">
+        <i class="fa-solid fa-book text-xl"></i>
+    </a>
+
+    <a href="trilhas.html">
+        <i class="fa-solid fa-route text-xl"></i>
+    </a>
+
+    <a href="ranking.html">
+        <i class="fa-solid fa-trophy text-xl"></i>
+    </a>
+
+    <a href="perfil.html" class="text-blue-400">
+        <i class="fa-solid fa-user text-xl"></i>
+    </a>
+
+</nav>
+
+<nav class="md:hidden bg-dark-blue p-4 flex justify-between items-center">
+    <h1 class="font-bold text-lg">
+        <i class="fa-solid fa-code text-blue-400"></i>
+        FluentCode
+    </h1>
+
+    <a href="index.html" class="text-white">
+        <i class="fa-solid fa-house text-xl"></i>
+    </a>
+</nav>
+
+    <div class="flex flex-col md:flex-row min-h-screen">
+        
+        <aside class="w-64 bg-dark-blue p-6 flex flex-col justify-between hidden md:flex">
+            <div>
+                <div class="text-2xl font-bold text-white mb-8 flex items-center gap-2">
+                    <i class="fa-solid fa-code text-blue-400"></i> FluentCode
+                </div>
+                <nav class="space-y-4">
+                    <a href="index.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-gray-400 hover:bg-slate-800 hover:text-white transition"><i class="fa-solid fa-house"></i> Início</a>
+                    <a href="#" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-gray-400 hover:bg-slate-800 hover:text-white transition"><i class="fa-solid fa-book"></i> Atividades</a>
+                    <a href="#" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-gray-400 hover:bg-slate-800 hover:text-white transition"><i class="fa-solid fa-route"></i> Trilhas</a>
+                    <a href="#" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-gray-400 hover:bg-slate-800 hover:text-white transition"><i class="fa-solid fa-trophy"></i> Ranking</a>
+                    <a href="#" class="flex items-center gap-3 bg-blue-600 px-4 py-2.5 rounded-xl text-white font-medium"><i class="fa-solid fa-user"></i> Perfil</a>
+                </nav>
+            </div>
+            
+            <div class="bg-gradient-to-tr from-blue-700 to-indigo-900 p-4 rounded-2xl text-center relative overflow-hidden">
+                <p class="text-sm font-semibold mb-2">Aprenda Java e Inglês Técnico de um jeito divertido!</p>
+                <div class="text-4xl">🤖</div>
+            </div>
+        </aside>
+
+        <main class="flex-1 p-6 md:p-12 overflow-y-auto max-w-4xl mx-auto w-full">
+            
+            <div class="flex items-center gap-4 mb-8">
+                <a href="index.html" class="bg-card-blue hover:bg-blue-600 w-10 h-10 rounded-xl flex items-center justify-center transition">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+                <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">Editar Perfil</h1>
+            </div>
+
+            <div class="grid grid-cols-4 md:grid-cols-7 gap-2">
+                
+                <div class="bg-card-blue p-6 rounded-3xl text-center flex flex-col items-center justify-center space-y-4 shadow-lg">
+                    <div id="avatarViewer" class="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center text-5xl border-4 border-white/10 shadow-inner">🪷</div>
+                    <div>
+                        <h2 id="nameViewer" class="text-xl font-bold">RecrutaDev</h2>
+                        <p id="xpViewer" class="text-sm text-blue-300 font-semibold mt-1">0 XP Acumulados</p>
+                    </div>
+                </div>
+
+                <div class="md:col-span-2 bg-card-blue p-6 md:p-8 rounded-3xl space-y-6 shadow-lg">
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-blue-300 tracking-wider mb-2">Nome de Usuário</label>
+                            <input type="text" id="usernameInput" class="w-full bg-slate-900/60 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="Seu apelido">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-blue-300 tracking-wider mb-2">E-mail</label>
+                            <input type="email" id="emailInput" class="w-full bg-slate-900/60 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="seu@email.com">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase font-bold text-blue-300 tracking-wider mb-3">Escolha seu Personagem</label>
+                        <div class="grid grid-cols-4 sm:grid-cols-7 gap-2">
+                            <button onclick="selectAvatar('🪷')" class="avatar-option p-3 bg-slate-900/40 hover:bg-slate-800 rounded-xl text-2xl border-2 border-transparent transition" title="Flor de Lótus">🪷</button>
+                            <button onclick="selectAvatar('🌙')" class="avatar-option p-3 bg-slate-900/40 hover:bg-slate-800 rounded-xl text-2xl border-2 border-transparent transition" title="Lua">🌙</button>
+                            <button onclick="selectAvatar('🧣')" class="avatar-option p-3 bg-slate-900/40 hover:bg-slate-800 rounded-xl text-2xl border-2 border-transparent transition" title="Cachecol">🧣</button>
+                            <button onclick="selectAvatar('🎸')" class="avatar-option p-3 bg-slate-900/40 hover:bg-slate-800 rounded-xl text-2xl border-2 border-transparent transition" title="Violão">🎸</button>
+                            <button onclick="selectAvatar('❄️')" class="avatar-option p-3 bg-slate-900/40 hover:bg-slate-800 rounded-xl text-2xl border-2 border-transparent transition" title="Floco de Neve">❄️</button>
+                            <button onclick="selectAvatar('🚗')" class="avatar-option p-3 bg-slate-900/40 hover:bg-slate-800 rounded-xl text-2xl border-2 border-transparent transition" title="Carro">🚗</button>
+                            <button onclick="selectAvatar('🐈')" class="avatar-option p-3 bg-slate-900/40 hover:bg-slate-800 rounded-xl text-2xl border-2 border-transparent transition" title="Gato">🐈</button>
+                        </div>
+                    </div>
+
+                    <button onclick="saveProfile()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl transition shadow-md flex items-center justify-center gap-2 mt-4">
+                        <i class="fa-solid fa-floppy-disk"></i> Salvar Alterações
+                    </button>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // Carrega dados mudando o padrão inicial para Flor de Lótus '🪷'
+        let currentAvatar = localStorage.getItem("avatar") || "🪷";
+        let username = localStorage.getItem("username") || "RecrutaDev";
+        let email = localStorage.getItem("email") || "";
+        let xp = localStorage.getItem("xp") || "0";
+
+        function initProfile() {
+            document.getElementById("usernameInput").value = username;
+            document.getElementById("emailInput").value = email;
+            document.getElementById("nameViewer").textContent = username;
+            document.getElementById("avatarViewer").textContent = currentAvatar;
+            document.getElementById("xpViewer").textContent = `${xp} XP Acumulados`;
+            highlightAvatarButton(currentAvatar);
+        }
+
+        function selectAvatar(emoji) {
+            currentAvatar = emoji;
+            document.getElementById("avatarViewer").textContent = emoji;
+            highlightAvatarButton(emoji);
+        }
+
+        function highlightAvatarButton(emoji) {
+            const buttons = document.querySelectorAll('.avatar-option');
+            buttons.forEach(btn => {
+                if(btn.textContent === emoji) {
+                    btn.classList.add('border-blue-500', 'bg-blue-900/30');
+                } else {
+                    btn.classList.remove('border-blue-500', 'bg-blue-900/30');
+                }
+            });
+        }
+
+        function saveProfile() {
+            const newName = document.getElementById("usernameInput").value.trim();
+            const newEmail = document.getElementById("emailInput").value.trim();
+
+            if(newName === "") {
+                alert("O nome de usuário não pode ficar vazio!");
+                return;
+            }
+
+            localStorage.setItem("username", newName);
+            localStorage.setItem("email", newEmail);
+            localStorage.setItem("avatar", currentAvatar);
+
+            document.getElementById("nameViewer").textContent = newName;
+            
+            alert("Perfil atualizado! As mudanças já refletem no Início. 🎉");
+        }
+
+        initProfile();
+    </script>
+</body>
+</html>
